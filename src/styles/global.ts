@@ -28,7 +28,6 @@ export default createGlobalStyle`
 body {
     background-attachment: fixed;
     color: var(--grey-600);
-    min-height: 100vh;
     height: 100%;
     margin: 10px;
 }
@@ -52,10 +51,19 @@ button {
     cursor: pointer;
 }
 
+#logoContainer {
+    display: flex;
+    width: 100%;
+    max-width: 479px;
+}
+
+
 @media screen and (min-width: 1024px) {
     body {
         margin: 115px;
+        margin-bottom: 0;
     }
+
 }
 
 /* .Toastify__toast-theme--colored.Toastify__toast--success {

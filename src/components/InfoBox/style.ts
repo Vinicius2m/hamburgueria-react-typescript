@@ -5,7 +5,8 @@ export const Container = styled.div`
     justify-content: space-around;
     align-items: center;
     height: 95px;
-    width: 300px;
+    width: 100%;
+    max-width: 479px;
     border: 2px solid var(--grey-100);
     border-radius: 5px;
     margin-top: 20px;
