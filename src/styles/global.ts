@@ -66,33 +66,31 @@ button {
 
 }
 
-/* .Toastify__toast-theme--colored.Toastify__toast--success {
+ .Toastify__toast-theme--colored.Toastify__toast--success {
     color: var(--success);
-    background: var();
-    border: 2px solid var();
+    background: var(--white);
+    border: 2px solid var(--grey-100);
     border-radius: 10px;
-    color: var();
     .Toastify__progress-bar {
-        background: var();
+        background: var(--success);
     }
     .Toastify__close-button--colored {
         
-        color: var();
+        color: var(--success);
     }
 }
 .Toastify__toast-theme--colored.Toastify__toast--error, .Toastify__toast-theme--colored.Toastify__toast--warning {
-    color: var(--success);
-    background: var();
-    border: 2px solid var();
+    color: var(--error);
+    background: var(--white);
+    border: 2px solid var(---grey-100);
     border-radius: 10px;
-    color: var();
     .Toastify__progress-bar {
-        background: var();
+        background: var(--error);
     }
     .Toastify__close-button--colored {
         
-        color: var();
+        color: var(--error);
     } 
-}*/
+}
 
 `

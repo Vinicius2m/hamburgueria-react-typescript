@@ -1,6 +1,7 @@
 import {createContext, ReactNode, useContext, useState} from "react"
 import {useHistory} from "react-router"
 import api from "../../services/api"
+import {toast} from "react-toastify"
 
 export interface userData {
     email: string
@@ -11,6 +12,7 @@ export interface userDataRegister {
     email: string
     password: string
     name: string
+    passwordConfirm: string
 }
 
 interface AuthProviderProps {
@@ -23,7 +25,7 @@ interface AuthProviderData {
     history: any
     signIn: (userData: userData) => void
     logout: () => void
-    register: (userData: userDataRegister) => void
+    userRegister: (userData: userDataRegister) => void
 }
 
 const AuthContext = createContext<AuthProviderData>({} as AuthProviderData)
@@ -42,13 +44,18 @@ export const AuthProvider = ({children}: AuthProviderProps) => {
     const signIn = (userData: userData) => {
         api.post("/login", userData)
             .then((response) => {
-                localStorage.setItem("token", response.data.token)
+                localStorage.setItem("token", response.data.accessToken)
                 setAuthToken(response.data.accessToken)
                 localStorage.setItem("id", response.data.user.id)
                 setUserId(response.data.user.id)
                 history.push("/dashboard")
+                toast.success(
+                    `Login efetuado! Bem vindo, ${response.data.user.name}`
+                )
             })
-            .catch((err) => console.log(err))
+            .catch(() => {
+                toast.error("Email ou senha inválidos")
+            })
     }
 
     const logout = () => {
@@ -57,15 +64,20 @@ export const AuthProvider = ({children}: AuthProviderProps) => {
         history.push("/")
     }
 
-    const register = (userData: userDataRegister) => {
-        api.post("/register", userData).then(() => {
-            history.push("/")
-        })
+    const userRegister = (userData: userDataRegister) => {
+        api.post("/register", userData)
+            .then(() => {
+                history.push("/")
+                toast.success(`Usuário cadastrado`)
+            })
+            .catch(() => {
+                toast.error(`Tente outro email`)
+            })
     }
 
     return (
         <AuthContext.Provider
-            value={{authToken, userId, history, logout, signIn, register}}
+            value={{authToken, userId, history, logout, signIn, userRegister}}
         >
             {children}
         </AuthContext.Provider>

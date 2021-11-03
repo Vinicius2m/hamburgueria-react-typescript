@@ -42,6 +42,7 @@ const Login = () => {
                 <div id="loginContent">
                     <h3>Login</h3>
                     <form
+                        autoComplete="off"
                         onSubmit={handleSubmit(onSubmit)}
                         className="inputsContainer"
                     >
@@ -51,8 +52,11 @@ const Login = () => {
                                     {...register("email")}
                                     type="text"
                                     placeholder="Email"
+                                    error={errors.email}
                                 />
-                                <label>{errors.email?.message}</label>
+                                <label className="errorLabel">
+                                    {errors.email?.message}
+                                </label>
                             </div>
 
                             <div className="inputContainer">
@@ -60,8 +64,11 @@ const Login = () => {
                                     {...register("password")}
                                     type="password"
                                     placeholder="Senha"
+                                    error={errors.password}
                                 />
-                                <label>{errors.password?.message}</label>
+                                <label className="errorLabel">
+                                    {errors.password?.message}
+                                </label>
                             </div>
                         </div>
 

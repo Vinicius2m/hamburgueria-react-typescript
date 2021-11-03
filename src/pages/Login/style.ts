@@ -21,11 +21,13 @@ export const MainLoginContainer = styled.div`
 
         #box {
             width: 375px;
+            min-width: 292px;
 
             img {
                 width: 180px;
                 height: 80px;
                 margin-top: 30px;
+                display: block;
             }
         }
     }
@@ -36,6 +38,8 @@ export const LoginContainer = styled.div`
     border: 2px solid var(--white);
     border-radius: 5px;
     max-width: 500px;
+    width: 100%;
+    min-width: 300px;
 
     #loginContent {
         width: 90%;
@@ -55,6 +59,10 @@ export const LoginContainer = styled.div`
             height: 85px;
             display: flex;
             flex-direction: column;
+
+            .errorLabel {
+                color: var(--secondary-color);
+            }
         }
 
         p {
@@ -64,5 +72,6 @@ export const LoginContainer = styled.div`
     }
 
     @media screen and (min-width: 1024px) {
+        min-width: 500px;
     }
 `

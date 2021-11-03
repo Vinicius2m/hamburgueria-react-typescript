@@ -1,10 +1,18 @@
 import styled from "styled-components"
 
-export const Inputs = styled.div`
+interface InputsProps {
+    error: object | undefined
+}
+
+export const Inputs = styled.div<InputsProps>`
     position: relative;
 
     input {
-        border: 2px solid transparent;
+        border: 2px solid
+            ${(props) =>
+                props.error
+                    ? "var(--secondary-color)"
+                    : "var(--primary-color)"};
         border-radius: 8px;
         background-color: var(--white);
         width: 100%;
@@ -33,14 +41,15 @@ export const Inputs = styled.div`
         transform-origin: left top;
     }
 
+    input:not(:placeholder-shown, :focus) + label {
+        transform: translateY(-50%) scale(0.9);
+        top: 0;
+        background: linear-gradient(to bottom, white 50%, var(--white) 50%);
+    }
+
     input:focus + label {
         top: 0;
         background-color: white;
         transform: translateY(-50%) scale(0.9);
-    }
-
-    input:not(:placeholder-shown) + label {
-        transform: translateY(-50%) scale(0.9);
-        top: 0;
     }
 `
