@@ -9,6 +9,7 @@ import * as yup from "yup"
 import greyDots from "../../assets/greyDots.svg"
 import Button from "../../components/Button"
 import {MainRegisterContainer} from "./style"
+import {Link} from "react-router-dom"
 
 const Register = () => {
     const {userRegister} = useAuth()
@@ -48,7 +49,10 @@ const Register = () => {
             </div>
             <LoginContainer>
                 <div id="loginContent">
-                    <h3>Cadastro</h3>
+                    <span id="cadastroContainer">
+                        <h3>Cadastro</h3>
+                        <Link to="/">Retornar para Login</Link>
+                    </span>
                     <form
                         autoComplete="off"
                         onSubmit={handleSubmit(onSubmit)}

@@ -69,6 +69,18 @@ export const LoginContainer = styled.div`
             text-align: center;
             color: grey;
         }
+
+        #cadastroContainer {
+            display: flex;
+            justify-content: space-between;
+
+            a {
+                color: var(--grey-300);
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 22px;
+            }
+        }
     }
 
     @media screen and (min-width: 1024px) {
