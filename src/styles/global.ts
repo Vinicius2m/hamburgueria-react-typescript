@@ -47,7 +47,7 @@ h3 {
     font-weight: bold;
 }
 
-button {
+button, svg, path {
     cursor: pointer;
 }
 
@@ -60,7 +60,7 @@ button {
 
 @media screen and (min-width: 1024px) {
     body {
-        margin: 115px;
+        margin: 115px 0;
         margin-bottom: 0;
     }
 

@@ -1,4 +1,5 @@
 import {Switch, Route} from "react-router"
+import Dashboard from "../pages/Dashboard"
 import Login from "../pages/Login"
 import Register from "../pages/Register"
 
@@ -13,7 +14,9 @@ const Routes = () => {
                 <Register />
             </Route>
 
-            <Route exact path="/dashboard"></Route>
+            <Route exact path="/dashboard">
+                <Dashboard />
+            </Route>
         </Switch>
     )
 }

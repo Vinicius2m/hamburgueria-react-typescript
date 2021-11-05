@@ -1,7 +1,12 @@
 import styled from "styled-components"
+import {LogoProps} from "."
 
-export const Container = styled.div`
+export const Container = styled.div<LogoProps>`
     margin-top: 5px;
+
+    h1 {
+        font-size: ${(props) => (props.fs ? `${props.fs}px` : "26px")};
+    }
 
     span {
         font-size: 18px;

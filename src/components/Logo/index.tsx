@@ -1,9 +1,13 @@
 import {Container} from "./style"
 
-const Logo = () => {
+export interface LogoProps {
+    fs?: number
+}
+
+const Logo = ({fs}: LogoProps) => {
     return (
         <div id="logoContainer">
-            <Container>
+            <Container fs={fs}>
                 <h1>
                     Burguer<span>Kenzie</span>
                 </h1>
